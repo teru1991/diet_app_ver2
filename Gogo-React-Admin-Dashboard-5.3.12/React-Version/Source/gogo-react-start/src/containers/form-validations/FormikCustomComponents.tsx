@@ -15,8 +15,11 @@ import {
   FormikTagsInput,
   FormikSwitch,
   FormikDatePicker,
+// @ts-expect-error TS(6142): Module './FormikFields' was resolved to '/Users/it... Remove this comment to see the full error message
 } from './FormikFields';
+// @ts-expect-error TS(2307): Cannot find module 'components/common/CustomBootst... Remove this comment to see the full error message
 import { Colxx } from 'components/common/CustomBootstrap';
+// @ts-expect-error TS(2307): Cannot find module 'helpers/IntlMessages' or its c... Remove this comment to see the full error message
 import IntlMessages from 'helpers/IntlMessages';
 
 const SignupSchema = Yup.object().shape({
@@ -60,10 +63,12 @@ const options = [
 ];
 
 const FormikCustomComponents = () => {
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = (values: any, {
+    setSubmitting
+  }: any) => {
     const payload = {
       ...values,
-      reactSelect: values.reactSelect.map((t) => t.value),
+      reactSelect: values.reactSelect.map((t: any) => t.value),
     };
     setTimeout(() => {
       console.log(JSON.stringify(payload, null, 2));
@@ -72,11 +77,17 @@ const FormikCustomComponents = () => {
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <Row className="mb-4">
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <Colxx xxs="12">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Card>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <CardBody>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <h6 className="mb-4">Custom Components and Layouts with Yup</h6>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Formik
               initialValues={{
                 email: 'test@test.com',
@@ -106,20 +117,29 @@ const FormikCustomComponents = () => {
                 touched,
                 isSubmitting,
               }) => (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <Form className="av-tooltip tooltip-label-right">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-100">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <IntlMessages id="forms.email" />
                     </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Field className="form-control" name="email" />
                     {errors.email && touched.email ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.email}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-100">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label>Select </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <select
                       name="select"
                       className="form-control"
@@ -127,23 +147,33 @@ const FormikCustomComponents = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     >
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="">Select an option..</option>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="1">1</option>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="2">2</option>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="3">3</option>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="4">4</option>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <option value="5">5</option>
                     </select>
 
                     {errors.select && touched.select ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.select}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-100">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label>React Select </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikReactSelect
                       name="reactSelect"
                       id="reactSelect"
@@ -154,13 +184,17 @@ const FormikCustomComponents = () => {
                       onBlur={setFieldTouched}
                     />
                     {errors.reactSelect && touched.reactSelect ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.reactSelect}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-150">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Single Checkbox </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikCheckbox
                       name="checkboxSingle"
                       value={values.checkboxSingle}
@@ -169,13 +203,17 @@ const FormikCustomComponents = () => {
                       onBlur={setFieldTouched}
                     />
                     {errors.checkboxSingle && touched.checkboxSingle ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.checkboxSingle}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-150">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Custom Single Checkbox </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikCustomCheckbox
                       name="checkboxCustomSingle"
                       value={values.checkboxCustomSingle}
@@ -185,13 +223,17 @@ const FormikCustomComponents = () => {
                     />
                     {errors.checkboxCustomSingle &&
                     touched.checkboxCustomSingle ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.checkboxCustomSingle}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-150 ">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Checkbox Group</Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikCheckboxGroup
                       inline
                       name="checkboxGroup"
@@ -203,13 +245,17 @@ const FormikCustomComponents = () => {
                       options={options}
                     />
                     {errors.checkboxGroup && touched.checkboxGroup ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.checkboxGroup}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-175 ">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Custom Checkbox Group</Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikCustomCheckboxGroup
                       inline
                       name="customCheckGroup"
@@ -221,14 +267,18 @@ const FormikCustomComponents = () => {
                       options={options}
                     />
                     {errors.customCheckGroup && touched.customCheckGroup ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.customCheckGroup}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-150">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Radio Group </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikRadioButtonGroup
                       inline
                       name="radioGroup"
@@ -240,13 +290,17 @@ const FormikCustomComponents = () => {
                       options={options}
                     />
                     {errors.radioGroup && touched.radioGroup ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.radioGroup}
                       </div>
                     ) : null}
                   </FormGroup>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-175">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">Custom Radio Group</Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikCustomRadioGroup
                       inline
                       name="customRadioGroup"
@@ -258,17 +312,22 @@ const FormikCustomComponents = () => {
                       options={options}
                     />
                     {errors.customRadioGroup && touched.customRadioGroup ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.customRadioGroup}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-175">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <IntlMessages id="form-components.tags" />
                     </Label>
 
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikTagsInput
                       name="tags"
                       value={values.tags}
@@ -277,16 +336,21 @@ const FormikCustomComponents = () => {
                     />
 
                     {errors.tags && touched.tags ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.tags}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-100">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <IntlMessages id="form-components.switch" />
                     </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikSwitch
                       name="switch"
                       className="custom-switch custom-switch-primary"
@@ -295,16 +359,21 @@ const FormikCustomComponents = () => {
                       onBlur={setFieldTouched}
                     />
                     {errors.switch && touched.switch ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.switch}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <FormGroup className="error-l-100">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Label className="d-block">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <IntlMessages id="form-components.date-picker" />
                     </Label>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <FormikDatePicker
                       name="date"
                       value={values.date}
@@ -312,12 +381,14 @@ const FormikCustomComponents = () => {
                       onBlur={setFieldTouched}
                     />
                     {errors.date && touched.date ? (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="invalid-feedback d-block">
                         {errors.date}
                       </div>
                     ) : null}
                   </FormGroup>
 
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <Button color="primary" type="submit">
                     Submit
                   </Button>

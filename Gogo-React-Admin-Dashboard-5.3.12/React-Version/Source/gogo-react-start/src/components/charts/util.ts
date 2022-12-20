@@ -1,3 +1,4 @@
+// @ts-expect-error TS(2307): Cannot find module 'helpers/ThemeColors' or its co... Remove this comment to see the full error message
 import { ThemeColors } from 'helpers/ThemeColors';
 
 export const chartTooltip = {
@@ -14,7 +15,7 @@ export const chartTooltip = {
 
 export const centerTextPlugin = {
   afterDatasetsUpdate() {},
-  beforeDraw(chart) {
+  beforeDraw(chart: any) {
     const width = chart.chartArea.right;
     const height = chart.chartArea.bottom;
     const { ctx } = chart.chart;
@@ -67,7 +68,7 @@ export const centerTextPlugin = {
     ctx.save();
   },
   // eslint-disable-next-line no-unused-vars
-  beforeEvent(chart, event) {
+  beforeEvent(chart: any, event: any) {
     const firstPoint = chart.getElementAtEvent(event)[0];
 
     if (firstPoint) {

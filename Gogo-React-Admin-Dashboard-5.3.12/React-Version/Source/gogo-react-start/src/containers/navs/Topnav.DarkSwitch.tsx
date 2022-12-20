@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Switch from 'rc-switch';
 import 'rc-switch/assets/index.css';
 import { Tooltip } from 'reactstrap';
+// @ts-expect-error TS(2307): Cannot find module 'helpers/Utils' or its correspo... Remove this comment to see the full error message
 import { getCurrentColor, setCurrentColor } from 'helpers/Utils';
 
 const TopnavDarkSwitch = () => {
@@ -29,13 +30,16 @@ const TopnavDarkSwitch = () => {
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className="d-none d-md-inline-block align-middle mr-3">
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <Switch
         id="tooltip_switch"
         className="custom-switch custom-switch-primary custom-switch-small"
         checked={switchChecked}
         onChange={changeMode}
       />
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <Tooltip
         placement="left"
         isOpen={tooltipOpen}

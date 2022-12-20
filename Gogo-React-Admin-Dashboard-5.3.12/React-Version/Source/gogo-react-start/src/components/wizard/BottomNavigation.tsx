@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 import React from 'react';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { WithWizard } from 'react-albus';
 import { Button } from 'reactstrap';
 
@@ -10,12 +11,20 @@ const BottomNavigation = ({
   onClickPrev,
   prevLabel,
   onClickNext,
-  nextLabel,
-}) => {
+  nextLabel
+}: any) => {
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <WithWizard
-      render={({ next, previous, step, steps }) => (
+      render={({
+        next,
+        previous,
+        step,
+        steps
+      }: any) => (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className={`wizard-buttons ${className}`}>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Button
             color="primary"
             className={`mr-1 ${steps.indexOf(step) <= 0 ? 'disabled' : ''}`}
@@ -26,6 +35,7 @@ const BottomNavigation = ({
             {prevLabel}
           </Button>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Button
             color="primary"
             className={

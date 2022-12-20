@@ -12,8 +12,8 @@ const Notification = ({
   customClassName,
   timeOut,
   onClick,
-  onRequestHide,
-}) => {
+  onRequestHide
+}: any) => {
   const requestHide = () => {
     if (onRequestHide) {
       onRequestHide();
@@ -21,7 +21,7 @@ const Notification = ({
   };
 
   useEffect(() => {
-    let timer = null;
+    let timer: any = null;
     if (timeOut !== 0) {
       timer = setTimeout(requestHide, timeOut);
     }
@@ -44,11 +44,15 @@ const Notification = ({
     `notification-${type}`,
     customClassName,
   ]);
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   const titleHtml = title ? <h4 className="title">{title}</h4> : null;
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className={className} onClick={() => handleClick()}>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="notification-message" role="alert">
         {titleHtml}
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="message">{message}</div>
       </div>
     </div>

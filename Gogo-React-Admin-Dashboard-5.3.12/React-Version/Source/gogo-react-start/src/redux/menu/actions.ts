@@ -7,22 +7,23 @@ import {
   MENU_CHANGE_HAS_SUB_ITEM_STATUS,
 } from '../constants';
 
-export const changeSelectedMenuHasSubItems = (payload) => {
+export const changeSelectedMenuHasSubItems = (payload: any) => {
   return {
     type: MENU_CHANGE_HAS_SUB_ITEM_STATUS,
     payload,
   };
 };
 
-export const changeDefaultClassnames = (strCurrentClasses) => {
+export const changeDefaultClassnames = (strCurrentClasses: any) => {
   return {
     type: MENU_CHANGE_DEFAULT_CLASSES,
     payload: strCurrentClasses,
   };
 };
 
-export const addContainerClassname = (classname, strCurrentClasses) => {
+export const addContainerClassname = (classname: any, strCurrentClasses: any) => {
   const newClasses =
+    // @ts-expect-error TS(2365): Operator '>' cannot be applied to types 'boolean' ... Remove this comment to see the full error message
     !strCurrentClasses.indexOf(classname) > -1
       ? `${strCurrentClasses} ${classname}`
       : strCurrentClasses;
@@ -32,16 +33,16 @@ export const addContainerClassname = (classname, strCurrentClasses) => {
   };
 };
 
-export const clickOnMobileMenu = (strCurrentClasses) => {
+export const clickOnMobileMenu = (strCurrentClasses: any) => {
   const currentClasses = strCurrentClasses
     ? strCurrentClasses
         .split(' ')
-        .filter((x) => x !== '' && x !== 'sub-show-temporary')
+        .filter((x: any) => x !== '' && x !== 'sub-show-temporary')
     : '';
   let nextClasses = '';
   if (currentClasses.includes('main-show-temporary')) {
     nextClasses = currentClasses
-      .filter((x) => x !== 'main-show-temporary')
+      .filter((x: any) => x !== 'main-show-temporary')
       .join(' ');
   } else {
     nextClasses = `${currentClasses.join(' ')} main-show-temporary`;
@@ -53,12 +54,12 @@ export const clickOnMobileMenu = (strCurrentClasses) => {
 };
 
 export const setContainerClassnames = (
-  clickIndex,
-  strCurrentClasses,
-  selectedMenuHasSubItems
+  clickIndex: any,
+  strCurrentClasses: any,
+  selectedMenuHasSubItems: any
 ) => {
   const currentClasses = strCurrentClasses
-    ? strCurrentClasses.split(' ').filter((x) => x !== '')
+    ? strCurrentClasses.split(' ').filter((x: any) => x !== '')
     : '';
   let nextClasses = '';
   if (!selectedMenuHasSubItems) {

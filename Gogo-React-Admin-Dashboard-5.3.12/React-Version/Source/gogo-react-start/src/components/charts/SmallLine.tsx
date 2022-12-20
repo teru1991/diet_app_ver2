@@ -2,11 +2,12 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 import React, { useEffect, useRef, useState } from 'react';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'char... Remove this comment to see the full error message
 import { Chart } from 'chart.js';
 
 import { smallLineChartOptions } from './config';
 
-const addCommas = (nStr) => {
+const addCommas = (nStr: any) => {
   nStr += '';
   const x = nStr.split('.');
   let x1 = x[0];
@@ -18,13 +19,15 @@ const addCommas = (nStr) => {
   return x1 + x2;
 };
 
-const Scatter = ({ data }) => {
+const Scatter = ({
+  data
+}: any) => {
   const chartContainer = useRef(null);
   const [, setChartInstance] = useState(null);
   const [currentValue, setCurrentValue] = useState('');
   const [currentLabel, setCurrentLabel] = useState('');
 
-  const changeState = (yLabel, xLabel) => {
+  const changeState = (yLabel: any, xLabel: any) => {
     setCurrentValue(yLabel);
     setCurrentLabel(xLabel);
   };
@@ -33,7 +36,7 @@ const Scatter = ({ data }) => {
     if (chartContainer && chartContainer.current) {
       Chart.controllers.lineWithLine = Chart.controllers.line;
       Chart.controllers.lineWithLine = Chart.controllers.line.extend({
-        draw(ease) {
+        draw(ease: any) {
           Chart.controllers.line.prototype.draw.call(this, ease);
           const {
             chart: { ctx, tooltip, scales },
@@ -55,6 +58,7 @@ const Scatter = ({ data }) => {
           }
         },
       });
+      // @ts-expect-error TS(2339): Property 'getContext' does not exist on type 'neve... Remove this comment to see the full error message
       const context = chartContainer.current.getContext('2d');
       const newChartInstance = new Chart(context, {
         type: 'lineWithLine',
@@ -63,7 +67,7 @@ const Scatter = ({ data }) => {
           tooltips: {
             intersect: false,
             enabled: false,
-            custom(tooltipModel) {
+            custom(tooltipModel: any) {
               if (tooltipModel && tooltipModel.dataPoints) {
                 const { yLabel } = tooltipModel.dataPoints[0];
                 const { xLabel } = tooltipModel.dataPoints[0];
@@ -75,7 +79,7 @@ const Scatter = ({ data }) => {
         },
         plugins: [
           {
-            afterInit(chart, _options) {
+            afterInit(chart: any, _options: any) {
               const yLabel = chart.data.datasets[0].data[0];
               const xLabel = chart.data.labels[0];
               const { label } = chart.data.datasets[0];
@@ -90,12 +94,18 @@ const Scatter = ({ data }) => {
   }, [chartContainer, data]);
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <p className="lead color-theme-1 mb-1 value">{currentValue}</p>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <p className="mb-0 label text-small">{currentLabel}</p>
       </div>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="chart">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <canvas ref={chartContainer} />
       </div>
     </>

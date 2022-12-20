@@ -5,7 +5,9 @@ import { Card, CardBody, CardTitle, Row } from 'reactstrap';
 import Switch from 'rc-switch';
 import 'rc-switch/assets/index.css';
 
+// @ts-expect-error TS(2307): Cannot find module 'helpers/IntlMessages' or its c... Remove this comment to see the full error message
 import IntlMessages from 'helpers/IntlMessages';
+// @ts-expect-error TS(2307): Cannot find module 'components/common/CustomBootst... Remove this comment to see the full error message
 import { Colxx } from 'components/common/CustomBootstrap';
 
 const SwitchExamples = () => {
@@ -25,16 +27,25 @@ const SwitchExamples = () => {
   ] = useState(false);
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <Card>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <CardBody>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <CardTitle>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <IntlMessages id="form-components.switch" />
         </CardTitle>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Row className="mb-4">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.primary" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-primary"
               checked={checkedPrimary}
@@ -42,10 +53,14 @@ const SwitchExamples = () => {
             />
           </Colxx>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.secondary" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-secondary"
               checked={checkedSecondary}
@@ -54,11 +69,16 @@ const SwitchExamples = () => {
           </Colxx>
         </Row>
 
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Row className="mb-4">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.primary-inverse" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-primary-inverse"
               checked={checkedPrimaryInverse}
@@ -68,10 +88,14 @@ const SwitchExamples = () => {
             />
           </Colxx>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.secondary-inverse" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-secondary-inverse"
               checked={checkedSecondaryInverse}
@@ -82,11 +106,16 @@ const SwitchExamples = () => {
           </Colxx>
         </Row>
 
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Row className="mb-4">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.primary" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-primary custom-switch-small"
               checked={checkedPrimarySmall}
@@ -94,10 +123,14 @@ const SwitchExamples = () => {
             />
           </Colxx>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.secondary" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-secondary custom-switch-small"
               checked={checkedSecondarySmall}
@@ -106,11 +139,16 @@ const SwitchExamples = () => {
           </Colxx>
         </Row>
 
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Row className="mb-4">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.primary-inverse" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-primary-inverse custom-switch-small"
               checked={checkedPrimaryInverseSmall}
@@ -120,10 +158,14 @@ const SwitchExamples = () => {
             />
           </Colxx>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Colxx xxs="6">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <label>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <IntlMessages id="form-components.secondary-inverse" />
             </label>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Switch
               className="custom-switch custom-switch-secondary-inverse custom-switch-small"
               checked={checkedSecondaryInverseSmall}

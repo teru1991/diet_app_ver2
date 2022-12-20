@@ -10,9 +10,12 @@ import { NavLink } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import classnames from 'classnames';
 
+// @ts-expect-error TS(2307): Cannot find module 'helpers/IntlMessages' or its c... Remove this comment to see the full error message
 import IntlMessages from 'helpers/IntlMessages';
+// @ts-expect-error TS(2307): Cannot find module 'components/common/ApplicationM... Remove this comment to see the full error message
 import ApplicationMenu from 'components/common/ApplicationMenu';
 
+// @ts-expect-error TS(2307): Cannot find module 'redux/actions' or its correspo... Remove this comment to see the full error message
 import { getSurveyListWithFilter } from 'redux/actions';
 
 const SurveyApplicationMenu = ({
@@ -22,32 +25,44 @@ const SurveyApplicationMenu = ({
   loading,
   labels,
   categories,
-  getSurveyListWithFilterAction,
-}) => {
-  const addFilter = (column, value) => {
+  getSurveyListWithFilterAction
+}: any) => {
+  const addFilter = (column: any, value: any) => {
     getSurveyListWithFilterAction(column, value);
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <ApplicationMenu>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <PerfectScrollbar
         options={{ suppressScrollX: true, wheelPropagation: false }}
       >
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="p-4">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <p className="text-muted text-small">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <IntlMessages id="survey.status" />
             Status
           </p>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <ul className="list-unstyled mb-5">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <NavItem className={classnames({ active: !filter })}>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <NavLink to="#" onClick={() => addFilter('', '')} location={{}}>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <i className="simple-icon-reload" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <IntlMessages id="survey.all-surveys" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <span className="float-right">
                   {loading && allSurveyItems.length}
                 </span>
               </NavLink>
             </NavItem>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <NavItem
               className={classnames({
                 active:
@@ -56,19 +71,25 @@ const SurveyApplicationMenu = ({
                   filter.value === 'ACTIVE',
               })}
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <NavLink
                 to="#"
+                // @ts-expect-error TS(2739): Type '{}' is missing the following properties from... Remove this comment to see the full error message
                 location={{}}
                 onClick={() => addFilter('status', 'ACTIVE')}
               >
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <i className="simple-icon-refresh" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <IntlMessages id="survey.active-surveys" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <span className="float-right">
                   {loading &&
-                    surveyItems.filter((x) => x.status === 'ACTIVE').length}
+                    surveyItems.filter((x: any) => x.status === 'ACTIVE').length}
                 </span>
               </NavLink>
             </NavItem>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <NavItem
               className={classnames({
                 active:
@@ -77,29 +98,41 @@ const SurveyApplicationMenu = ({
                   filter.value === 'COMPLETED',
               })}
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <NavLink
                 to="#"
+                // @ts-expect-error TS(2739): Type '{}' is missing the following properties from... Remove this comment to see the full error message
                 location={{}}
                 onClick={() => addFilter('status', 'COMPLETED')}
               >
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <i className="simple-icon-check" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <IntlMessages id="survey.completed-surveys" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <span className="float-right">
                   {loading &&
-                    surveyItems.filter((x) => x.status === 'COMPLETED').length}
+                    surveyItems.filter((x: any) => x.status === 'COMPLETED').length}
                 </span>
               </NavLink>
             </NavItem>
           </ul>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <p className="text-muted text-small">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <IntlMessages id="survey.categories" />
           </p>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <ul className="list-unstyled mb-5">
-            {categories.map((c, index) => {
+            {categories.map((c: any, index: any) => {
               return (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <NavItem key={index}>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div onClick={() => addFilter('category', c)}>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="custom-control custom-radio">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <input
                         type="radio"
                         className="custom-control-input"
@@ -109,6 +142,7 @@ const SurveyApplicationMenu = ({
                           filter.value === c
                         }
                       />
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <label className="custom-control-label">{c}</label>
                     </div>
                   </div>
@@ -116,18 +150,25 @@ const SurveyApplicationMenu = ({
               );
             })}
           </ul>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <p className="text-muted text-small">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <IntlMessages id="survey.labels" />
           </p>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div>
-            {labels.map((l, index) => {
+            {labels.map((l: any, index: any) => {
               return (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <p className="d-sm-inline-block mb-1" key={index}>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <NavLink
                     to="#"
+                    // @ts-expect-error TS(2739): Type '{}' is missing the following properties from... Remove this comment to see the full error message
                     location={{}}
                     onClick={() => addFilter('label', l.label)}
                   >
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <Badge
                       className="mb-1"
                       color={`${
@@ -151,7 +192,9 @@ const SurveyApplicationMenu = ({
     </ApplicationMenu>
   );
 };
-const mapStateToProps = ({ surveyListApp }) => {
+const mapStateToProps = ({
+  surveyListApp
+}: any) => {
   const {
     surveyItems,
     filter,

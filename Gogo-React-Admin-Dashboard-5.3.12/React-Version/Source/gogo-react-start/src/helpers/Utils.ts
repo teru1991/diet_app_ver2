@@ -6,11 +6,12 @@ import {
   localeOptions,
   themeColorStorageKey,
   themeRadiusStorageKey,
+// @ts-expect-error TS(2307): Cannot find module 'constants/defaultValues' or it... Remove this comment to see the full error message
 } from 'constants/defaultValues';
 
-export const mapOrder = (array, order, key) => {
+export const mapOrder = (array: any, order: any, key: any) => {
   // eslint-disable-next-line func-names
-  array.sort(function (a, b) {
+  array.sort(function (a: any, b: any) {
     const A = a[key];
     const B = b[key];
     if (order.indexOf(`${A}`) > order.indexOf(`${B}`)) {
@@ -28,9 +29,11 @@ export const getDateWithFormat = () => {
 
   const yyyy = today.getFullYear();
   if (dd < 10) {
+    // @ts-expect-error TS(2322): Type 'string' is not assignable to type 'number'.
     dd = `0${dd}`;
   }
   if (mm < 10) {
+    // @ts-expect-error TS(2322): Type 'string' is not assignable to type 'number'.
     mm = `0${mm}`;
   }
   return `${dd}.${mm}.${yyyy}`;
@@ -60,7 +63,7 @@ export const getDirection = () => {
     isRtl: direction === 'rtl',
   };
 };
-export const setDirection = (localValue) => {
+export const setDirection = (localValue: any) => {
   let direction = 'ltr';
   if (localValue === 'rtl' || localValue === 'ltr') {
     direction = localValue;
@@ -85,7 +88,7 @@ export const getCurrentColor = () => {
   return currentColor;
 };
 
-export const setCurrentColor = (color) => {
+export const setCurrentColor = (color: any) => {
   try {
     localStorage.setItem(themeColorStorageKey, color);
   } catch (error) {
@@ -97,6 +100,7 @@ export const getCurrentRadius = () => {
   let currentRadius = 'rounded';
   try {
     if (localStorage.getItem(themeRadiusStorageKey)) {
+      // @ts-expect-error TS(2322): Type 'string | null' is not assignable to type 'st... Remove this comment to see the full error message
       currentRadius = localStorage.getItem(themeRadiusStorageKey);
     }
   } catch (error) {
@@ -108,7 +112,7 @@ export const getCurrentRadius = () => {
   }
   return currentRadius;
 };
-export const setCurrentRadius = (radius) => {
+export const setCurrentRadius = (radius: any) => {
   try {
     localStorage.setItem(themeRadiusStorageKey, radius);
   } catch (error) {
@@ -125,7 +129,7 @@ export const getCurrentLanguage = () => {
     language =
       localStorage.getItem('currentLanguage') &&
       localeOptions.filter(
-        (x) => x.id === localStorage.getItem('currentLanguage')
+        (x: any) => x.id === localStorage.getItem('currentLanguage')
       ).length > 0
         ? localStorage.getItem('currentLanguage')
         : defaultLocale;
@@ -138,7 +142,7 @@ export const getCurrentLanguage = () => {
   }
   return language;
 };
-export const setCurrentLanguage = (locale) => {
+export const setCurrentLanguage = (locale: any) => {
   try {
     localStorage.setItem('currentLanguage', locale);
   } catch (error) {
@@ -154,6 +158,7 @@ export const getCurrentUser = () => {
   try {
     user =
       localStorage.getItem('gogo_current_user') != null
+        // @ts-expect-error TS(2345): Argument of type 'string | null' is not assignable... Remove this comment to see the full error message
         ? JSON.parse(localStorage.getItem('gogo_current_user'))
         : null;
   } catch (error) {
@@ -163,7 +168,7 @@ export const getCurrentUser = () => {
   return user;
 };
 
-export const setCurrentUser = (user) => {
+export const setCurrentUser = (user: any) => {
   try {
     if (user) {
       localStorage.setItem('gogo_current_user', JSON.stringify(user));

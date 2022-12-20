@@ -6,7 +6,9 @@ import {
   setCurrentColor,
   getCurrentRadius,
   setCurrentRadius,
+// @ts-expect-error TS(2307): Cannot find module 'helpers/Utils' or its correspo... Remove this comment to see the full error message
 } from 'helpers/Utils';
+// @ts-expect-error TS(2307): Cannot find module 'constants/defaultValues' or it... Remove this comment to see the full error message
 import { colors } from 'constants/defaultValues';
 
 const ColorSwitcher = () => {
@@ -25,9 +27,10 @@ const ColorSwitcher = () => {
     if (isOpen) setIsOpen(false);
   }, [radius]);
 
-  const handleDocumentClick = (e) => {
+  const handleDocumentClick = (e: any) => {
     if (isOpen) {
       const container = containerRef.current;
+      // @ts-expect-error TS(2532): Object is possibly 'undefined'.
       if (container.contains(e.target) || container === e.target) {
         return;
       }
@@ -47,7 +50,7 @@ const ColorSwitcher = () => {
     };
   }, [isOpen]);
 
-  const changeThemeColor = (e, color) => {
+  const changeThemeColor = (e: any, color: any) => {
     e.preventDefault();
     setCurrentColor(color);
     setIsOpen(false);
@@ -57,71 +60,84 @@ const ColorSwitcher = () => {
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div ref={containerRef} className={`theme-colors ${isOpen ? 'shown' : ''}`}>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="p-4">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <p className="text-muted mb-2">Light Theme</p>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="d-flex flex-row justify-content-between mb-3">
-          {colors.slice(0, 5).map((color) => (
-            <a
-              key={`light.${color}`}
-              href={`#light.${color}`}
-              className={`theme-color theme-color-${color} ${
-                selectedColor === `light.${color}` ? 'active' : ''
-              }`}
-              onClick={(e) => changeThemeColor(e, `light.${color}`)}
-            >
-              <span>{` `}</span>
-            </a>
-          ))}
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          {colors.slice(0, 5).map((color: any) => <a
+            key={`light.${color}`}
+            href={`#light.${color}`}
+            className={`theme-color theme-color-${color} ${
+              selectedColor === `light.${color}` ? 'active' : ''
+            }`}
+            onClick={(e) => changeThemeColor(e, `light.${color}`)}
+          >
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <span>{` `}</span>
+          </a>)}
         </div>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="d-flex flex-row justify-content-between mb-4">
-          {colors.slice(5, 10).map((color) => (
-            <a
-              key={`light.${color}`}
-              href={`#light.${color}`}
-              className={`theme-color theme-color-${color} ${
-                selectedColor === `light.${color}` ? 'active' : ''
-              }`}
-              onClick={(e) => changeThemeColor(e, `light.${color}`)}
-            >
-              <span>{` `}</span>
-            </a>
-          ))}
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          {colors.slice(5, 10).map((color: any) => <a
+            key={`light.${color}`}
+            href={`#light.${color}`}
+            className={`theme-color theme-color-${color} ${
+              selectedColor === `light.${color}` ? 'active' : ''
+            }`}
+            onClick={(e) => changeThemeColor(e, `light.${color}`)}
+          >
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <span>{` `}</span>
+          </a>)}
         </div>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <p className="text-muted mb-2">Dark Theme</p>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="d-flex flex-row justify-content-between mb-3">
-          {colors.slice(0, 5).map((color) => (
-            <a
-              key={`dark.${color}`}
-              href={`#dark.${color}`}
-              className={`theme-color theme-color-${color} ${
-                selectedColor === `dark.${color}` ? 'active' : ''
-              }`}
-              onClick={(e) => changeThemeColor(e, `dark.${color}`)}
-            >
-              <span>{` `}</span>
-            </a>
-          ))}
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          {colors.slice(0, 5).map((color: any) => <a
+            key={`dark.${color}`}
+            href={`#dark.${color}`}
+            className={`theme-color theme-color-${color} ${
+              selectedColor === `dark.${color}` ? 'active' : ''
+            }`}
+            onClick={(e) => changeThemeColor(e, `dark.${color}`)}
+          >
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <span>{` `}</span>
+          </a>)}
         </div>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="d-flex flex-row justify-content-between">
-          {colors.slice(5, 10).map((color) => (
-            <a
-              key={`dark.${color}`}
-              href={`#dark.${color}`}
-              className={`theme-color theme-color-${color} ${
-                selectedColor === `dark.${color}` ? 'active' : ''
-              }`}
-              onClick={(e) => changeThemeColor(e, `dark.${color}`)}
-            >
-              <span>{` `}</span>
-            </a>
-          ))}
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          {colors.slice(5, 10).map((color: any) => <a
+            key={`dark.${color}`}
+            href={`#dark.${color}`}
+            className={`theme-color theme-color-${color} ${
+              selectedColor === `dark.${color}` ? 'active' : ''
+            }`}
+            onClick={(e) => changeThemeColor(e, `dark.${color}`)}
+          >
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <span>{` `}</span>
+          </a>)}
         </div>
       </div>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className=" pb-0 pl-4 pt-4">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <FormGroup>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <Label for="radiusRadio">Border Radius </Label>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <CustomInput
               type="radio"
               name="radiusRadio"
@@ -131,6 +147,7 @@ const ColorSwitcher = () => {
               defaultChecked={radius === 'rounded'}
               onChange={() => setRadius('rounded')}
             />
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <CustomInput
               type="radio"
               name="radiusRadio"
@@ -144,6 +161,7 @@ const ColorSwitcher = () => {
         </FormGroup>
       </div>
 
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <a
         href="#section"
         className="theme-button"
@@ -153,6 +171,7 @@ const ColorSwitcher = () => {
         }}
       >
         {' '}
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <i className="simple-icon-magic-wand" />{' '}
       </a>
     </div>

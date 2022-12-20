@@ -4,14 +4,17 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-classes-per-file */
 import React from 'react';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import Select from 'react-select';
 import { CustomInput } from 'reactstrap';
 
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css';
 import Switch from 'rc-switch';
 import 'rc-switch/assets/index.css';
 
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -22,9 +25,9 @@ const FormikReactSelect = ({
   isMulti,
   className,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (val) => {
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onChange(name, val);
   };
 
@@ -33,6 +36,7 @@ const FormikReactSelect = ({
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <Select
       className={`react-select ${className}`}
       classNamePrefix="react-select"
@@ -51,9 +55,9 @@ const FormikCheckboxGroup = ({
   options,
   inline = false,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (val) => {
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     const valueArray = [...value] || [];
     if (!valueArray.includes(val)) {
       valueArray.push(val);
@@ -67,31 +71,33 @@ const FormikCheckboxGroup = ({
     onBlur(name, true);
   };
 
-  return (
-    <>
-      {options.map((child, index) => {
-        return (
-          <div
-            key={`${name}_${child.value}_${index}`}
-            className={`position-relative form-check ${
-              inline ? 'form-check-inline' : ''
-            }`}
-          >
-            <input
-              name={name}
-              type="checkbox"
-              className="form-check-input"
-              onChange={() => handleChange(child.value)}
-              onBlur={handleBlur}
-              defaultChecked={value.includes(child.value)}
-              disabled={child.disabled}
-            />
-            <label className="form-check-label">{child.label}</label>
-          </div>
-        );
-      })}
-    </>
-  );
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+  return <>
+    {options.map((child: any, index: any) => {
+      return (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        <div
+          key={`${name}_${child.value}_${index}`}
+          className={`position-relative form-check ${
+            inline ? 'form-check-inline' : ''
+          }`}
+        >
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <input
+            name={name}
+            type="checkbox"
+            className="form-check-input"
+            onChange={() => handleChange(child.value)}
+            onBlur={handleBlur}
+            defaultChecked={value.includes(child.value)}
+            disabled={child.disabled}
+          />
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <label className="form-check-label">{child.label}</label>
+        </div>
+      );
+    })}
+  </>;
 };
 
 const FormikCustomCheckboxGroup = ({
@@ -100,9 +106,9 @@ const FormikCustomCheckboxGroup = ({
   options,
   inline = false,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (val) => {
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     const valueArray = [...value] || [];
     if (!valueArray.includes(val)) {
       valueArray.push(val);
@@ -116,37 +122,46 @@ const FormikCustomCheckboxGroup = ({
     onBlur(name, true);
   };
 
-  return (
-    <>
-      {options.map((child, index) => {
-        return (
-          <CustomInput
-            key={`${name}_${child.value}_${index}`}
-            id={`${name}_${child.value}_${index}`}
-            type="checkbox"
-            name={child.name}
-            label={child.label}
-            onChange={() => handleChange(child.value)}
-            onBlur={handleBlur}
-            checked={value.includes(child.value)}
-            disabled={child.disabled}
-            inline={inline}
-          />
-        );
-      })}
-    </>
-  );
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+  return <>
+    {options.map((child: any, index: any) => {
+      return (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        <CustomInput
+          key={`${name}_${child.value}_${index}`}
+          id={`${name}_${child.value}_${index}`}
+          type="checkbox"
+          name={child.name}
+          label={child.label}
+          onChange={() => handleChange(child.value)}
+          onBlur={handleBlur}
+          checked={value.includes(child.value)}
+          disabled={child.disabled}
+          inline={inline}
+        />
+      );
+    })}
+  </>;
 };
 
-const FormikCheckbox = ({ name, value, disabled, label, onChange, onBlur }) => {
-  const handleChange = (_event) => {
+const FormikCheckbox = ({
+  name,
+  value,
+  disabled,
+  label,
+  onChange,
+  onBlur
+}: any) => {
+  const handleChange = (_event: any) => {
     onChange(name, !value);
   };
   const handleBlur = () => {
     onBlur(name, true);
   };
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className="position-relative form-check form-check-inline">
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <input
         name={name}
         type="checkbox"
@@ -156,6 +171,7 @@ const FormikCheckbox = ({ name, value, disabled, label, onChange, onBlur }) => {
         checked={value}
         disabled={disabled}
       />
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <label className="form-check-label">{label}</label>
     </div>
   );
@@ -167,15 +183,16 @@ const FormikCustomCheckbox = ({
   disabled,
   label,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (_event) => {
+  onBlur
+}: any) => {
+  const handleChange = (_event: any) => {
     onChange(name, !value);
   };
   const handleBlur = () => {
     onBlur(name, true);
   };
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <CustomInput
       type="checkbox"
       id={name}
@@ -196,9 +213,9 @@ const FormikRadioButtonGroup = ({
   options,
   inline = false,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (val) => {
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onChange(name, val);
   };
 
@@ -206,32 +223,34 @@ const FormikRadioButtonGroup = ({
     onBlur(name, true);
   };
 
-  return (
-    <>
-      {options.map((child, index) => {
-        return (
-          <div
-            key={`${name}_${child.value}_${index}`}
-            className={`position-relative form-check ${
-              inline ? 'form-check-inline' : ''
-            }`}
-          >
-            <input
-              id={child.value}
-              name={name}
-              type="radio"
-              className="form-check-input"
-              onChange={() => handleChange(child.value)}
-              onBlur={handleBlur}
-              defaultChecked={value === child.value}
-              disabled={child.disabled}
-            />
-            <label className="form-check-label">{child.label}</label>
-          </div>
-        );
-      })}
-    </>
-  );
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+  return <>
+    {options.map((child: any, index: any) => {
+      return (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        <div
+          key={`${name}_${child.value}_${index}`}
+          className={`position-relative form-check ${
+            inline ? 'form-check-inline' : ''
+          }`}
+        >
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <input
+            id={child.value}
+            name={name}
+            type="radio"
+            className="form-check-input"
+            onChange={() => handleChange(child.value)}
+            onBlur={handleBlur}
+            defaultChecked={value === child.value}
+            disabled={child.disabled}
+          />
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <label className="form-check-label">{child.label}</label>
+        </div>
+      );
+    })}
+  </>;
 };
 
 const FormikCustomRadioGroup = ({
@@ -240,9 +259,9 @@ const FormikCustomRadioGroup = ({
   options,
   inline = false,
   onChange,
-  onBlur,
-}) => {
-  const handleChange = (val) => {
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onChange(name, val);
   };
 
@@ -250,45 +269,59 @@ const FormikCustomRadioGroup = ({
     onBlur(name, true);
   };
 
-  return (
-    <>
-      {options.map((child, index) => {
-        return (
-          <CustomInput
-            key={`${name}_${child.value}_${index}`}
-            type="radio"
-            id={`${name}_${child.value}_${index}`}
-            name={child.name}
-            label={child.label}
-            onChange={() => handleChange(child.value)}
-            onBlur={handleBlur}
-            checked={value === child.value}
-            disabled={child.disabled}
-            inline={inline}
-          />
-        );
-      })}
-    </>
-  );
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+  return <>
+    {options.map((child: any, index: any) => {
+      return (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        <CustomInput
+          key={`${name}_${child.value}_${index}`}
+          type="radio"
+          id={`${name}_${child.value}_${index}`}
+          name={child.name}
+          label={child.label}
+          onChange={() => handleChange(child.value)}
+          onBlur={handleBlur}
+          checked={value === child.value}
+          disabled={child.disabled}
+          inline={inline}
+        />
+      );
+    })}
+  </>;
 };
 
-const FormikTagsInput = ({ name, value, onChange, onBlur }) => {
-  const handleChange = (val) => {
+const FormikTagsInput = ({
+  name,
+  value,
+  onChange,
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onBlur(name, true);
     onChange(name, val);
   };
 
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   return <TagsInput name={name} value={value} onChange={handleChange} />;
 };
 
-const FormikSwitch = ({ name, value, className, onChange, onBlur }) => {
-  const handleChange = (val) => {
+const FormikSwitch = ({
+  name,
+  value,
+  className,
+  onChange,
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onBlur(name, true);
     onChange(name, val);
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <Switch
+      // @ts-expect-error TS(2322): Type '{ name: any; className: any; checked: any; o... Remove this comment to see the full error message
       name={name}
       className={className}
       checked={value}
@@ -297,16 +330,23 @@ const FormikSwitch = ({ name, value, className, onChange, onBlur }) => {
   );
 };
 
-const FormikDatePicker = ({ name, value, className, onChange, onBlur }) => {
-  const handleChange = (val) => {
+const FormikDatePicker = ({
+  name,
+  value,
+  className,
+  onChange,
+  onBlur
+}: any) => {
+  const handleChange = (val: any) => {
     onChange(name, val);
   };
 
-  const handleBlur = (_val) => {
+  const handleBlur = (_val: any) => {
     onBlur(name, true);
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <DatePicker
       name={name}
       className={className}

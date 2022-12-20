@@ -1,16 +1,18 @@
 // eslint-disable react/forbid-prop-types
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// @ts-expect-error TS(7016): Could not find a declaration file for module '@gli... Remove this comment to see the full error message
 import Glide from '@glidejs/glide';
+// @ts-expect-error TS(2307): Cannot find module 'helpers/Utils' or its correspo... Remove this comment to see the full error message
 import { getDirection } from 'helpers/Utils';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 
 let resizeTimeOut = -1;
 let mountTimeOut = -1;
 
-function GlideComponent(props) {
-  let carousel;
-  let glideCarousel;
+function GlideComponent(props: any) {
+  let carousel: any;
+  let glideCarousel: any;
 
   const onResize = () => {
     clearTimeout(resizeTimeOut);
@@ -56,6 +58,7 @@ function GlideComponent(props) {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < total; i++) {
       dots.push(
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <button
           type="button"
           className="glide__bullet slider-dot"
@@ -68,24 +71,32 @@ function GlideComponent(props) {
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div>
       {/* eslint-disable-next-line no-return-assign */}
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="glide" ref={(node) => (carousel = node)}>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div data-glide-el="track" className="glide__track">
           {/* eslint-disable-next-line react/destructuring-assignment */}
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="glide__slides">{props.children}</div>
         </div>
         {/* eslint-disable-next-line react/destructuring-assignment */}
         {!props.settings.hideNav && (
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="glide__arrows slider-nav" data-glide-el="controls">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <button
               type="button"
               className="glide__arrow glide__arrow--left left-arrow btn btn-link"
               data-glide-dir="<"
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <i className="simple-icon-arrow-left" />
             </button>
 
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div
               className="glide__bullets slider-dot-container"
               data-glide-el="controls[nav]"
@@ -93,11 +104,13 @@ function GlideComponent(props) {
               {renderDots()}
             </div>
 
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <button
               type="button"
               className="glide__arrow glide__arrow--right right-arrow btn btn-link"
               data-glide-dir=">"
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <i className="simple-icon-arrow-right" />
             </button>
           </div>

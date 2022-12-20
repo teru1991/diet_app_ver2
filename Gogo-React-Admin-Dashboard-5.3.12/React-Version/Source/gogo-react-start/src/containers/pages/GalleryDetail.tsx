@@ -26,19 +26,25 @@ const GalleryDetail = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="row social-image-row gallery">
         {thumbs.map((item, index) => {
           return (
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="col-6" key={index}>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <NavLink
                 to="#"
                 onClick={() => {
                   setPhotoIndex(index);
                   setIsOpen(true);
                 }}
+                // @ts-expect-error TS(2739): Type '{}' is missing the following properties from... Remove this comment to see the full error message
                 location={{}}
               >
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <img
                   className="img-fluid border-radius"
                   src={item}
@@ -50,6 +56,7 @@ const GalleryDetail = () => {
         })}
       </div>
       {isOpen && (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Lightbox
           mainSrc={images[photoIndex]}
           nextSrc={images[(photoIndex + 1) % images.length]}

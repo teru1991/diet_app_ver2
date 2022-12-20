@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import Autosuggest from 'react-autosuggest';
 
-const getSuggestionValue = (suggestion) => suggestion.name;
+const getSuggestionValue = (suggestion: any) => suggestion.name;
 
-const renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
+// @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+const renderSuggestion = (suggestion: any) => <div>{suggestion.name}</div>;
 
-const ReactAutoSuggest = ({ data, value, placeholder, onChange }) => {
+const ReactAutoSuggest = ({
+  data,
+  value,
+  placeholder,
+  onChange
+}: any) => {
   const [valueState, setValueState] = useState(value);
   const [dataState] = useState(data || []);
   const [suggestions, setSuggestions] = useState([]);
 
-  const getSuggestions = (val) => {
+  const getSuggestions = (val: any) => {
     if (val) {
       const inputValue = val.trim().toLowerCase();
       const inputLength = inputValue.length;
@@ -18,17 +25,20 @@ const ReactAutoSuggest = ({ data, value, placeholder, onChange }) => {
       return inputLength === 0
         ? []
         : dataState.filter(
-            (d) => d.name.toLowerCase().slice(0, inputLength) === inputValue
+            (d: any) => d.name.toLowerCase().slice(0, inputLength) === inputValue
           );
     }
     return dataState;
   };
 
-  const changeInput = (event, { newValue }) => {
+  const changeInput = (event: any, {
+    newValue
+  }: any) => {
     setValueState(newValue);
     onChange(newValue);
   };
 
+  // @ts-expect-error TS(7031): Binding element 'val' implicitly has an 'any' type... Remove this comment to see the full error message
   const onSuggestionsFetchRequested = ({ value: val }) => {
     setSuggestions(getSuggestions(val));
   };
@@ -44,6 +54,7 @@ const ReactAutoSuggest = ({ data, value, placeholder, onChange }) => {
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <Autosuggest
       suggestions={suggestions}
       onSuggestionsFetchRequested={onSuggestionsFetchRequested}

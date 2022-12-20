@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+// @ts-expect-error TS(7016): Could not find a declaration file for module '@gli... Remove this comment to see the full error message
 import Glide from '@glidejs/glide';
+// @ts-expect-error TS(2307): Cannot find module 'helpers/Utils' or its correspo... Remove this comment to see the full error message
 import { getDirection } from 'helpers/Utils';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
@@ -13,38 +15,45 @@ const defaultProps = {
   settingsThumbs: {},
 };
 
-let carouselImages;
-let carouselThumbs;
+let carouselImages: any;
+let carouselThumbs: any;
 
 function GlideComponentThumbs(props = defaultProps) {
   const glideCarouselImages = useRef(null);
   const glideCarouselThumbs = useRef(null);
+  // @ts-expect-error TS(2339): Property 'data' does not exist on type '{}'.
   // eslint-disable-next-line react/destructuring-assignment
   const total = props.settingsImages.data.length;
 
   const [activeIndex, setactiveIndex] = useState(0);
   const [thumbsPerView, setThumbsPerView] = useState(
+    // @ts-expect-error TS(2339): Property 'perView' does not exist on type '{}'.
     // eslint-disable-next-line react/destructuring-assignment
     Math.min(props.settingsThumbs.perView, props.settingsImages.data.length)
   );
   const [renderArrows, setRenderArrows] = useState(true);
 
   const updateThumbBreakpoints = () => {
+    // @ts-expect-error TS(2339): Property 'breakpoints' does not exist on type '{}'... Remove this comment to see the full error message
     const thumbBreakpoints = props.settingsThumbs.breakpoints;
     const newBreakpoints = {};
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const prop in thumbBreakpoints) {
+      // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       newBreakpoints[prop] = {
         perView: Math.min(thumbBreakpoints[prop].perView, total),
       };
     }
+    // @ts-expect-error TS(2339): Property 'breakpoints' does not exist on type '{}'... Remove this comment to see the full error message
     // eslint-disable-next-line no-param-reassign
     props.settingsThumbs.breakpoints = newBreakpoints;
   };
 
   const thumbsResize = () => {
     const perView = Math.min(
+      // @ts-expect-error TS(2339): Property 'perView' does not exist on type '{}'.
       props.settingsThumbs.perView,
+      // @ts-expect-error TS(2339): Property 'data' does not exist on type '{}'.
       props.settingsImages.data.length
     );
     setThumbsPerView(perView);
@@ -73,7 +82,7 @@ function GlideComponentThumbs(props = defaultProps) {
     }, 500);
   };
 
-  const onThumbClick = (index) => {
+  const onThumbClick = (index: any) => {
     setactiveIndex(index);
     carouselImages.go(`=${index}`);
   };
@@ -115,15 +124,23 @@ function GlideComponentThumbs(props = defaultProps) {
   }, []);
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div>
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="glide details" ref={glideCarouselImages}>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div data-glide-el="track" className="glide__track">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="glide__slides">
             {/* eslint-disable-next-line react/destructuring-assignment */}
-            {props.settingsImages.data.map((item) => {
+            // @ts-expect-error TS(2339): Property 'data' does not exist on type '{}'.
+            {props.settingsImages.data.map((item: any) => {
               return (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div key={item.id}>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="glide__slide">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <img
                       alt="detail"
                       src={item.img}
@@ -137,12 +154,17 @@ function GlideComponentThumbs(props = defaultProps) {
         </div>
       </div>
 
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="glide thumbs" ref={glideCarouselThumbs}>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div data-glide-el="track" className="glide__track">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="glide__slides">
             {/* eslint-disable-next-line react/destructuring-assignment */}
-            {props.settingsThumbs.data.map((item, index) => {
+            // @ts-expect-error TS(2339): Property 'data' does not exist on type '{}'.
+            {props.settingsThumbs.data.map((item: any, index: any) => {
               return (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                 <div
                   className={
@@ -155,6 +177,7 @@ function GlideComponentThumbs(props = defaultProps) {
                     onThumbClick(index);
                   }}
                 >
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <img
                     alt="detail"
                     src={item.img}
@@ -167,19 +190,24 @@ function GlideComponentThumbs(props = defaultProps) {
         </div>
 
         {renderArrows && (
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="glide__arrows" data-glide-el="controls">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <button
               type="button"
               className="glide__arrow glide__arrow--left"
               data-glide-dir="<"
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <i className="simple-icon-arrow-left" />
             </button>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <button
               type="button"
               className="glide__arrow glide__arrow--right"
               data-glide-dir=">"
             >
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <i className="simple-icon-arrow-right" />
             </button>
           </div>

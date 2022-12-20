@@ -1,3 +1,4 @@
+// @ts-expect-error TS(2307): Cannot find module 'helpers/ThemeColors' or its co... Remove this comment to see the full error message
 import { ThemeColors } from 'helpers/ThemeColors';
 
 const colors = ThemeColors();

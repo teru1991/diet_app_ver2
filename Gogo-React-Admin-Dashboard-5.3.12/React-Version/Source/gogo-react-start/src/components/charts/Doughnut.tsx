@@ -1,11 +1,15 @@
 /* eslint-disable prefer-rest-params */
 import React, { useEffect, useRef, useState } from 'react';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'char... Remove this comment to see the full error message
 import { Chart } from 'chart.js';
 
 import { centerTextPlugin } from './util';
 import { doughnutChartOptions } from './config';
 
-const Doughnut = ({ data, shadow = false }) => {
+const Doughnut = ({
+  data,
+  shadow = false
+}: any) => {
   const chartContainer = useRef(null);
   const [, setChartInstance] = useState(null);
 
@@ -15,7 +19,7 @@ const Doughnut = ({ data, shadow = false }) => {
         Chart.defaults.doughnutWithShadow = Chart.defaults.doughnut;
         Chart.controllers.doughnutWithShadow = Chart.controllers.doughnut.extend(
           {
-            draw(ease) {
+            draw(ease: any) {
               Chart.controllers.doughnut.prototype.draw.call(this, ease);
               const {
                 chart: { ctx },
@@ -32,6 +36,7 @@ const Doughnut = ({ data, shadow = false }) => {
           }
         );
       }
+      // @ts-expect-error TS(2339): Property 'getContext' does not exist on type 'neve... Remove this comment to see the full error message
       const context = chartContainer.current.getContext('2d');
       const newChartInstance = new Chart(context, {
         type: shadow ? 'doughnutWithShadow' : 'doughnut',
@@ -43,6 +48,7 @@ const Doughnut = ({ data, shadow = false }) => {
     }
   }, [chartContainer, data, shadow]);
 
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   return <canvas ref={chartContainer} />;
 };
 

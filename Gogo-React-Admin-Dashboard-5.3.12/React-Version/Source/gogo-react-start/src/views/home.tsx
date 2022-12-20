@@ -3,9 +3,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Nav, NavItem, TabContent, TabPane } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { scroller } from 'react-scroll';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import Headroom from 'react-headroom';
+// @ts-expect-error TS(2307): Cannot find module 'components/carousel/GlideCompo... Remove this comment to see the full error message
 import GlideComponent from 'components/carousel/GlideComponent';
+// @ts-expect-error TS(2307): Cannot find module 'constants/defaultValues' or it... Remove this comment to see the full error message
 import { buyUrl, adminRoot } from 'constants/defaultValues';
 
 const slideSettings = {
@@ -185,13 +189,16 @@ const Home = () => {
   const refSectionFooter = useRef(null);
   const [activeTab, setActiveTab] = useState(0);
 
-  const onWindowResize = (event) => {
+  const onWindowResize = (event: any) => {
+    // @ts-expect-error TS(2531): Object is possibly 'null'.
     const homeRect = refRowHome.current.getBoundingClientRect();
 
     const homeSection = refSectionHome.current;
+    // @ts-expect-error TS(2531): Object is possibly 'null'.
     homeSection.style.backgroundPositionX = `${homeRect.x - 580}px`;
 
     const footerSection = refSectionFooter.current;
+    // @ts-expect-error TS(2531): Object is possibly 'null'.
     footerSection.style.backgroundPositionX = `${
       event.target.innerWidth - homeRect.x - 2000
     }px`;
@@ -223,7 +230,7 @@ const Home = () => {
     };
   }, []);
 
-  const scrollTo = (event, target) => {
+  const scrollTo = (event: any, target: any) => {
     event.preventDefault();
     scroller.scrollTo(target, {
       duration: 500,
@@ -234,27 +241,34 @@ const Home = () => {
     return false;
   };
 
-  const toggle = (tab) => {
+  const toggle = (tab: any) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div
       className={classnames('landing-page', {
         'show-mobile-menu': showMobileMenu,
       })}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="mobile-menu" onClick={(event) => event.stopPropagation()}>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <a
           className="logo-mobile c-pointer"
           href="#scroll"
           onClick={(event) => scrollTo(event, 'home')}
         >
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <span />
         </a>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <ul className="navbar-nav">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="c-pointer"
               href="#scroll"
@@ -263,7 +277,9 @@ const Home = () => {
               FEATURES
             </a>
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="c-pointer"
               href="#scroll"
@@ -272,7 +288,9 @@ const Home = () => {
               LAYOUTS
             </a>
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="c-pointer"
               href="#scroll"
@@ -281,7 +299,9 @@ const Home = () => {
               COMPONENTS
             </a>
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="c-pointer"
               href="#scroll"
@@ -290,7 +310,9 @@ const Home = () => {
               APPS
             </a>
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="c-pointer"
               href="#scroll"
@@ -299,10 +321,14 @@ const Home = () => {
               THEMES
             </a>
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="separator" />
           </li>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <li className="nav-item text-center">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <a
               className="btn btn-outline-primary btn-sm mobile-menu-cta"
               target="_blank"
@@ -315,20 +341,30 @@ const Home = () => {
         </ul>
       </div>
 
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <div className="main-container">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Headroom className="landing-page-nav">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <nav>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container d-flex align-items-center justify-content-between">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <a
                 className="navbar-logo pull-left c-pointer"
                 href="#scroll"
                 onClick={(event) => scrollTo(event, 'home')}
               >
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <span className="white" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <span className="dark" />
               </a>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <ul className="navbar-nav d-none d-lg-flex flex-row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
@@ -337,7 +373,9 @@ const Home = () => {
                     FEATURES
                   </a>
                 </li>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
@@ -346,7 +384,9 @@ const Home = () => {
                     LAYOUTS
                   </a>
                 </li>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
@@ -355,7 +395,9 @@ const Home = () => {
                     COMPONENTS
                   </a>
                 </li>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
@@ -364,7 +406,9 @@ const Home = () => {
                     APPS
                   </a>
                 </li>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
@@ -373,7 +417,9 @@ const Home = () => {
                     THEMES
                   </a>
                 </li>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <li className="nav-item pl-4">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="btn btn-outline-semi-light btn-sm pr-4 pl-4"
                     target="_blank"
@@ -385,6 +431,7 @@ const Home = () => {
                 </li>
               </ul>
               {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <span
                 className="mobile-menu-button"
                 onClick={(event) => {
@@ -392,17 +439,25 @@ const Home = () => {
                   event.stopPropagation();
                 }}
               >
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <i className="simple-icon-menu" />
               </span>
             </div>
           </nav>
         </Headroom>
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <div className="content-container" id="home">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section home" ref={refSectionHome}>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row home-row" ref={refRowHome}>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 d-block d-md-none">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <NavLink to="/">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <img
                       alt="mobile hero"
                       className="mobile-hero"
@@ -411,35 +466,49 @@ const Home = () => {
                   </NavLink>
                 </div>
 
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 col-xl-4 col-lg-5 col-md-6">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="home-text">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="display-1">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       MAGIC IS IN <br />
                       THE DETAILS
                     </div>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <p className="white mb-5">
                       Gogo is the combination of good design, quality code and
                       attention for details.
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <br />
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <br />
                       We used same design language for components, layouts, apps
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       and other parts of the template. <br />
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <br />
                       Hope you enjoy it!
                     </p>
                     {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <a
                       className="btn btn-light btn-xl mr-2 mb-2"
                       href={adminRoot}
                       target="_blank"
                     >
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       VIEW NOW <i className="simple-icon-arrow-right" />
                     </a>
                   </div>
                 </div>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 col-xl-7 offset-xl-1 col-lg-7 col-md-6  d-none d-md-block">
                   {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a href={adminRoot} target="_blank">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <img
                       alt="hero"
                       src="/assets/img/landing-page/home-hero.png"
@@ -448,21 +517,32 @@ const Home = () => {
                 </div>
               </div>
 
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 p-0">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="home-carousel">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <GlideComponent settings={slideSettings}>
                       {slideItems.map((f, index) => (
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         // eslint-disable-next-line react/no-array-index-key
                         <div key={`slide_${index}`} className="card">
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <div className="card-body text-center">
+                            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                             <div>
+                              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                               <i className={`${f.icon} large-icon`} />
+                              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                               <h5 className="mb-3 font-weight-semibold">
                                 {f.title}
                               </h5>
                             </div>
+                            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                             <div>
+                              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                               <p className="detail-text">{f.detail}</p>
                             </div>
                           </div>
@@ -473,23 +553,32 @@ const Home = () => {
                 </div>
               </div>
 
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <a
                   className="btn btn-circle btn-outline-semi-light hero-circle-button"
                   href="#scroll"
                   onClick={(event) => scrollTo(event, 'features')}
                 >
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <i className="simple-icon-arrow-down" />
                 </a>
               </div>
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container" id="features">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Features At a Glance</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p>
                     We tried to create an admin theme that we would like to use
                     ourselves so we listed our priorities. We would like to have
@@ -499,19 +588,27 @@ const Home = () => {
                 </div>
               </div>
               {features.map((feature, i) => (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 // eslint-disable-next-line react/no-array-index-key
                 <div key={`feature_${i}`}>
                   {i % 2 === 0 && (
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="row feature-row">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="col-12 col-md-6 col-lg-5 d-flex align-items-center">
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <div className="feature-text-container">
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <h2>{feature.title}</h2>
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <div
                             dangerouslySetInnerHTML={{ __html: feature.detail }}
                           />
                         </div>
                       </div>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="col-12 col-md-6 col-lg-6 offset-lg-1 offset-md-0 position-relative">
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <img
                           alt={feature.title}
                           src={feature.img}
@@ -521,17 +618,24 @@ const Home = () => {
                     </div>
                   )}
                   {i % 2 === 1 && (
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="row feature-row">
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="col-12 col-md-6 col-lg-6 order-2 order-md-1">
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <img
                           alt={feature.title}
                           src={feature.img}
                           className="feature-image-left feature-image-charts"
                         />
                       </div>
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <div className="col-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1 d-flex align-items-center order-1 order-md-2">
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <div className="feature-text-container">
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <h2>{feature.title}</h2>
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <div
                             dangerouslySetInnerHTML={{ __html: feature.detail }}
                           />
@@ -544,14 +648,21 @@ const Home = () => {
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section background">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container" id="layouts">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Structures &amp; Layouts</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p>
                     We did our best to create layouts for various needs that
                     developers might have and best experience for users.
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <br />
                     They are clean and slick. They function well and look good
                     at the same time.
@@ -559,17 +670,21 @@ const Home = () => {
                 </div>
               </div>
 
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row pt-5">
                 {layouts.map((l, index) => (
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div
                     key={`layout_${index}`}
                     className="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-5"
                   >
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <img
                       className="img-fluid border-radius depth-2 mb-3 semi-rounded"
                       alt={l.title}
                       src={l.img}
                     />
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <h4 className="text-center">{l.title}</h4>
                   </div>
                 ))}
@@ -577,17 +692,25 @@ const Home = () => {
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section mb-0">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container" id="components">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row mb-5">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Components</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p>
                     We used most popular and well managed open source components
                     with bootstrap components. Combined them into even more
                     useful ones. Themed them with same design principles and
                     created a design harmony between components and layouts.
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <br />
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <br />
                     From carousels to charts, switches to list we tried to
                     provide components that we like to use on our development
@@ -596,6 +719,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <img
               className="components-image mb-5 pb-5"
               alt="Components"
@@ -603,11 +727,17 @@ const Home = () => {
             />
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section background">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container" id="apps">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center mb-4">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Applications</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p className="section-text">
                     With the help of components and layouts, we created four
                     different applications. They are a good way to get you
@@ -615,11 +745,16 @@ const Home = () => {
                   </p>
                 </div>
               </div>
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row screenshots">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 text-center mb-4">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <Nav tabs className="justify-content-center">
                     {applications.map((app, index) => (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <NavItem key={`app_nav_${index}`}>
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <a
                           href="#tab"
                           className={classnames({
@@ -636,10 +771,14 @@ const Home = () => {
                       </NavItem>
                     ))}
                   </Nav>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <TabContent activeTab={activeTab}>
                     {applications.map((app, index) => (
+                      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                       <TabPane key={`app_tab_${index}`} tabId={index}>
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <NavLink to={app.path}>
+                          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                           <img
                             alt={app.title}
                             src={app.img}
@@ -654,11 +793,17 @@ const Home = () => {
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section mb-0">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container" id="themes">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row mb-5">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Themes</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p>
                     We carefully choosed colors and created 10 different themes
                     with dark and light versions. You may also create your own
@@ -668,13 +813,19 @@ const Home = () => {
                 </div>
               </div>
               {themes.map((t, index) => (
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div key={`theme_${index}`} className="row mb-5">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="col-12 text-center mb-3">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <h4 className="text-center">{t.title}</h4>
                   </div>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="col-12 col-md-6 col-lg-4 offset-lg-2 mb-3">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="depth-2 color-container">
                       {['left', 'center', 'right'].map((align, i) => (
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <div
                           key={`light_${index}_${i}`}
                           className={`${t.class}-light-${i + 1} color-${align}`}
@@ -682,9 +833,12 @@ const Home = () => {
                       ))}
                     </div>
                   </div>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="col-12 col-md-6 col-lg-4 mb-3">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <div className="depth-2 color-container">
                       {['left', 'center', 'right'].map((align, i) => (
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <div
                           key={`dark_${index}_${i}`}
                           className={`${t.class}-dark-${i + 1} color-${align}`}
@@ -697,17 +851,26 @@ const Home = () => {
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section background background-no-bottom mb-0 pb-0">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-8 offset-lg-2 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <h1>Enjoying so Far?</h1>
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p>
                     Purchase Gogo to get a fresh start with your new project.
                   </p>
                 </div>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 offset-0 col-lg-6 offset-lg-3 newsletter-input-container">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <div className="text-center mb-3">
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <a
                       className="btn btn-secondary btn-xl"
                       target="_blank"
@@ -722,24 +885,33 @@ const Home = () => {
             </div>
           </div>
 
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
           <div className="section footer mb-0" ref={refSectionFooter}>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row footer-row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 text-right">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="btn btn-circle btn-outline-semi-light footer-circle-button c-pointer"
                     href="#scroll"
                     onClick={(event) => scrollTo(event, 'home')}
                   >
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <i className="simple-icon-arrow-up" />
                   </a>
                 </div>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 text-center footer-content">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <a
                     className="c-pointer"
                     href="#scroll"
                     onClick={(event) => scrollTo(event, 'home')}
                   >
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <img
                       className="footer-logo"
                       alt="footer logo"
@@ -749,10 +921,15 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <div className="container copyright pt-5 pb-5">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
               <div className="row">
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12" />
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <div className="col-12 text-center">
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                   <p className="mb-0">2021 © ColoredStrategies</p>
                 </div>
               </div>
