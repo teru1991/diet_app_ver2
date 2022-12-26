@@ -6,8 +6,8 @@ import {
   localeOptions,
   themeColorStorageKey,
   themeRadiusStorageKey,
-
 } from '../stores/defaultValues';
+
 import {types} from "sass";
 import String = types.String;
 
